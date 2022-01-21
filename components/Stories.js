@@ -7,31 +7,14 @@ import { useSession } from 'next-auth/react'
 const Stories = () => {
   const {data: session}= useSession();
    
-    const [userss,setUserss]=useState([]);
+    
     const [newUsers,setNewUsers]=useState([]);
-
-   
-
-   
-
-    const geUserss=async ()=>{
-        const response=await fetch("https://jsonplaceholder.typicode.com/users");
-        const data=await response.json();
-          setUserss(data);
-          
-       
-    }
 
     const getNewUsers = async ()=>{
       const res=await fetch("https://jsonplaceholder.typicode.com/users");
       const newData=await res.json();
       setNewUsers(newData);
     }
-
-    
-    
-
-  
 
     useEffect(() => {
       getNewUsers();
